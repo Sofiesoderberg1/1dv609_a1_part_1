@@ -9,5 +9,35 @@ describe('SSNHelpe Tests', () => {
 
     expect(helper.isCorrectLength('900101-1234')).toBe(true);
 });
+test('should return false when SSN has incorrect length', () => {
+const helper = new SSNHelper();
+expect(helper.isCorrectLength('12345')).toBe(false);
+});
+
+test('should return true when social security number has correct format', ()=> {
+    const helper = new SSNHelper(); expect(helper.isCorrectFormat('900101-1234').toBe(true))
+})
+
+test('should return false when social security number does not have hyphen', () => {
+    const helper = new SSNHelper();
+
+    expect(helper.isCorrectFormat('9001011234')).toBe(false);
+});
+
+test('should return false when social security number does not have hyphen', () => {
+    const helper = new SSNHelper();
+
+    expect(helper.isCorrectFormat('9001011234')).toBe(false);
+});
+   test('should return true when a valid month is accepted', ()=> {
+    const helper = new SSNHelper(); 
     
+    expect(helper.isValidMonth('05')).toBe(true);
+});
+
+test('should return false when month is invalid', () => {
+    const helper = new SSNHelper();
+
+    expect(helper.isValidMonth('13')).toBe(false);
+});
 });
