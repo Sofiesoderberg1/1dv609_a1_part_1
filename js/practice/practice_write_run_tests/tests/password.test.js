@@ -62,4 +62,13 @@ test('should return false when passwords are different', () => {
         password1.isPasswordSame("hello");
     }).toThrow('Invalid argument');
 });
+
+test('should return false when SSN has incorrect length', () => {
+const helper = new SSNHelper();
+expect(helper.isCorrectLength('12345')).toBe(false);
+});
+
+test('should return true when social security number has correct format', ()=> {
+    const helper = new SSNHelper(); expect(helper.isCorrectFormat('900101-1234').toBe(true))
+})
 });

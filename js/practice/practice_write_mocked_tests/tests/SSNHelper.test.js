@@ -4,9 +4,10 @@ import { SSNHelper } from '../src/correct/SSNHelper';
 
 describe('SSNHelpe Tests', () => {
 
-    test('replace this test with one of your own', () => {
-        expect(true).toBe(true);
-    });
+    test('should return true when SSN has 11 characters', () => {
+    const helper = new SSNHelper();
 
-    //Add your tests here
+    expect(helper.isCorrectLength('900101-1234')).toBe(true);
+});
+    
 });
