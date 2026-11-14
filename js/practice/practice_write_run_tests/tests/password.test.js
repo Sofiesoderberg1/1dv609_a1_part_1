@@ -71,4 +71,10 @@ expect(helper.isCorrectLength('12345')).toBe(false);
 test('should return true when social security number has correct format', ()=> {
     const helper = new SSNHelper(); expect(helper.isCorrectFormat('900101-1234').toBe(true))
 })
+
+test('should return false when social security number does not have hyphen', () => {
+    const helper = new SSNHelper();
+
+    expect(helper.isCorrectFormat('9001011234')).toBe(false);
+});
 });
