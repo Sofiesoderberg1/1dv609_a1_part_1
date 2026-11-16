@@ -53,4 +53,16 @@ test('should return false when day is invalid', () => {
 
     expect(helper.isValidDay('32')).toBe(false);
 });
+
+test('should return true if luhn is correct', () => {
+    const helper = new SSNHelper();
+
+    expect(helper.luhnisCorrect('900101-1239')).toBe(true);
+});
+
+test('should return false if social security number has wrong number', () => {
+    const helper = new SSNHelper();
+
+    expect(helper.luhnisCorrect('900101-1238')).toBe(false);
+});
 });
