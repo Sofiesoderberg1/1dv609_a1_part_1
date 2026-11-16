@@ -15,7 +15,8 @@ expect(helper.isCorrectLength('12345')).toBe(false);
 });
 
 test('should return true when social security number has correct format', ()=> {
-    const helper = new SSNHelper(); expect(helper.isCorrectFormat('900101-1234').toBe(true))
+    const helper = new SSNHelper(); 
+    expect(helper.isCorrectFormat('900101-1234')).toBe(true)
 })
 
 test('should return false when social security number does not have hyphen', () => {
@@ -39,5 +40,17 @@ test('should return false when month is invalid', () => {
     const helper = new SSNHelper();
 
     expect(helper.isValidMonth('13')).toBe(false);
+});
+
+test('should return true when day is valid', () => {
+  const helper = new SSNHelper();
+
+  expect(helper.isValidDay('15')).toBe(true);
+});
+
+test('should return false when day is invalid', () => {
+    const helper = new SSNHelper();
+
+    expect(helper.isValidDay('32')).toBe(false);
 });
 });

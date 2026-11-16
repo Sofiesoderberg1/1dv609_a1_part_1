@@ -1,4 +1,5 @@
 import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'; 
+import { jest } from '@jest/globals';
 
 
 
@@ -11,6 +12,15 @@ describe('SwedishSocialSecurityNumber Tests', () => {
     isValidDay: jest.fn().mockReturnValue(true),
     luhnisCorrect: jest.fn().mockReturnValue(true)
 };
+ beforeEach(() => {
+        mockHelper.isCorrectLength.mockReturnValue(true);
+        mockHelper.isCorrectFormat.mockReturnValue(true);
+        mockHelper.isValidMonth.mockReturnValue(true);
+        mockHelper.isValidDay.mockReturnValue(true);
+        mockHelper.luhnisCorrect.mockReturnValue(true);
+
+        jest.clearAllMocks();
+    });
 
     test('should return the correct year', () => {
     const ssn = new SwedishSocialSecurityNumber('900101-1234', mockHelper);
